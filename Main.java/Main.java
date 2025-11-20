@@ -1,6 +1,3 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -26,67 +23,5 @@ public class Main {
 
         System.out.println("\n All Contacts Again ");
         book.showAll();
-    }
-}
-class Contact {
-    String phone;
-    String name;
-    String email;
-
-    public Contact(String phone, String name, String email) {
-        this.phone = phone;
-        this.name = name;
-        this.email = email;
-    }
-
-    @Override
-    public String toString() {
-        return "Name: " + name + ", Phone: " + phone + ", Email: " + email;
-    }
-}
-
-class ContactBook {
-
-    private HashMap<String, Contact> contacts;
-
-    public ContactBook() {
-        contacts = new HashMap<>();
-    }
-
-    public void add(Contact contact) {
-        contacts.put(contact.phone, contact);
-        System.out.println("Added: " + contact.name);
-    }
-
-    public void delete(String phone) {
-        Contact z = contacts.remove(phone);
-
-        if (z != null) {
-            System.out.println("Removed: " + z.name);
-        } else {
-            System.out.println("Number not found: " + phone);
-        }
-    }
-
-    public void find(String phone) {
-        Contact z = contacts.get(phone);
-
-        if (z != null) {
-            System.out.println("Found: " + z.toString());
-        } else {
-            System.out.println("Number not found: " + phone);
-        }
-    }
-
-    public void showAll() {
-        if (contacts.isEmpty()) {
-            System.out.println("Book is empty.");
-            return;
-        }
-
-        System.out.println("List:");
-        for (Contact c : contacts.values()) {
-            System.out.println(" - " + c.toString());
-        }
     }
 }
